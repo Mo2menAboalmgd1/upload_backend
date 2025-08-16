@@ -1,13 +1,13 @@
 const express = require("express");
 const helmet = require("helmet");
-const upload = require("./config/multer");
+const upload = require("../config/multer");
 const hpp = require("hpp");
-const { myCORS, optionsCORS } = require("./middlewares/cors");
+const { myCORS, optionsCORS } = require("../middlewares/cors");
 
-const uploadRouter = require("./routers/upload.router");
-const errorHandler = require("./middlewares/errorHandler");
-const db = require("./config/db")
-const { PORT } = require("./config/env");
+const uploadRouter = require("../routers/upload.router");
+const errorHandler = require("../middlewares/errorHandler");
+const db = require("../config/db");
+// const { PORT } = require("../config/env");
 
 const app = express();
 
@@ -29,6 +29,8 @@ app.get("/health", async (req, res, next) => {
 
 app.use(errorHandler());
 
-app.listen(PORT, () => {
-  console.log("Server is running on port:", PORT);
-});
+module.exports = app;
+
+// app.listen(PORT, () => {
+//   console.log("Server is running on port:", PORT);
+// });
