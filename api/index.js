@@ -16,6 +16,14 @@ app.use(hpp());
 app.use(myCORS());
 app.use(optionsCORS());
 
+app.use("/", (req, res) => {
+  return res.status(200).json({
+    success: "true",
+    route: "home",
+    message: "welcome to home"
+  })
+})
+
 app.use("/upload", upload.array("files", 5), uploadRouter);
 
 app.get("/health", async (req, res, next) => {
