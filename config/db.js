@@ -8,7 +8,4 @@ const pool = new Pool({
   // ssl: { rejectUnauthorized: false },
 });
 
-module.exports = {
-  query: (text, params) => pool.query(text, params),
-  pool,
-};
+module.exports = pool;
